@@ -1,34 +1,24 @@
 package main
 
 import (
-	"encoding/json"
+	"fmt"
 	"log"
+	"main1/controller"
 	"net/http"
 
 	"github.com/gorilla/mux"
 )
 
-type Employee struct {
-	FirstName, LastName, Email string
-	Age                        int
-}
-
-func GetBooks(w http.ResponseWriter, r *http.Request) {
-	data := Employee{
-		FirstName: "Amit",
-		LastName:  "Kumar",
-		Email:     "baddhanamit@gmail.com",
-		Age:       22,
-	}
-	json.NewEncoder(w).Encode(data)
-
-}
-
 func main() {
+	fmt.Println(controller.Greet())
 
 	router := mux.NewRouter()
-	router.HandleFunc("/", GetBooks).Methods("GET")
-
-	log.Fatal(http.ListenAndServe(":8000", router))
+	router.HandleFunc("/", controller.GetBooks).Methods("GET")
+	router.HandleFunc("/{id}", controller.GetBook).Methods("GET")
+	router.HandleFunc("/", controller.CreateBook).Methods("POST")
+	router.HandleFunc("/{id}", controller.DeleteBook).Methods("DELETE")
+	router.HandleFunc("/{id}", controller.UpdateBook).Methods("PATCH")
+	fmt.Println("running on port 8000")
+	log.Fatal(http.ListenAndServe(":8001", router))
 
 }
