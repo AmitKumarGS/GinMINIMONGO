@@ -19,6 +19,6 @@ func main() {
 	router.HandleFunc("/{id}", controller.DeleteBook).Methods("DELETE")
 	router.HandleFunc("/{id}", controller.UpdateBook).Methods("PATCH")
 	fmt.Println("running on port 8000")
-	log.Fatal(http.ListenAndServe(":8001", router))
+	log.Fatal(http.ListenAndServe(":8000", router))
 
 }
