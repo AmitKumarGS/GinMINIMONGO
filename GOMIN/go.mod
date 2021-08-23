@@ -7,7 +7,7 @@ require (
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/gorilla/mux v1.8.0
 	github.com/klauspost/compress v1.13.4 // indirect
-	github.com/rahmanfadhil/gin-bookstore v0.0.0-20200805034825-de0f04215ba8
+	 
 	github.com/youmark/pkcs8 v0.0.0-20201027041543-1326539a0a0a // indirect
 
 	go.mongodb.org/mongo-driver v1.7.1
